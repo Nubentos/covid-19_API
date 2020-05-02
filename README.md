@@ -4,9 +4,12 @@ This a collection of client SDKs and Postman Collection to use an integrate the 
 
 We covered in this repository the next list of resources.
 
-1.[ ] Postman collection ready to import in your Postman API Client
-1.[ ] Client SDK in Java Languaje
-1.[ ] Client SDK in JavaScript Languaje
-1.[ ] Client SDK in Node.js Languaje
+[ ] Postman collection ready to import in your Postman API Client.
+
+[ ] Client SDK in Java Languaje.
+
+[ ] Client SDK in JavaScript Languaje.
+
+[ ] Client SDK in Node.js Languaje.
 
 

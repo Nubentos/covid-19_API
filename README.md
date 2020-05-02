@@ -4,12 +4,12 @@ This a collection of client SDKs and Postman Collection to use an integrate the 
 
 We covered in this repository the next list of resources.
 
-[X] Postman collection ready to import in your Postman API Client.
+[:white_check_mark:] Postman collection ready to import in your Postman API Client.
 
-[X] Client SDK in Java Languaje.
+[:white_check_mark:] Client SDK in Java Languaje.
 
-[X] Client SDK in JavaScript Languaje.
+[:white_check_mark:] Client SDK in JavaScript Languaje.
 
-[X] Mock server in Node.js languaje.
+[:white_check_mark:] Mock server in Node.js languaje.
 
 

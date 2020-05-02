@@ -1,0 +1,593 @@
+---
+swagger: "2.0"
+info:
+  description: "nCoV 2019 API provides information related with the case of pneumonia\
+    \ associated with the COVID-19 coronavirus.  The data we provide is collected\
+    \ from World Health Organization (WHO), the US Centers for Disease Control and\
+    \ Prevention (CDC), the Chinese Centre for Disease Control and Prevention (ECDC),\
+    \ China’s National Health Commission, and Chinese website DXY which provides regional\
+    \ case estimates faster than the national level reporting organizations."
+  version: "1.0.0"
+  title: "API-nCoV2019"
+  license:
+    name: "Apache 2.0"
+    url: "https://www.apache.org/licenses/LICENSE-2.0.html"
+host: "apigw.nubentos.com"
+basePath: "/t/nubentos.com/ncovapi/2.0.0"
+schemes:
+- "https"
+paths:
+  /active:
+    get:
+      summary: "Active cases"
+      description: "Active cases"
+      operationId: "activeGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "country"
+        in: "query"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "Spain"
+          - "Europe"
+          - "World"
+          - "Australia"
+          - "France"
+          - "China Mainland"
+          - "Hong Kong"
+          - "Japan"
+          - "Malaysia"
+          - "Nepal"
+          - "Singapore"
+          - "South Korea"
+          - "Taiwan"
+          - "Thailand"
+          - "US"
+          - "Vietnam"
+          - "Macau"
+        collectionFormat: "multi"
+        maxItems: 1
+        minItems: 1
+      responses:
+        200:
+          description: "Successful operation."
+          schema:
+            $ref: "#/definitions/resultCases"
+        400:
+          description: "Validation exception."
+        404:
+          description: "No results for the given source."
+      x-swagger-router-controller: "Default"
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: "Unlimited"
+  /cases:
+    get:
+      summary: "Total of active cases."
+      description: "Summary of suspected and confirmed"
+      operationId: "casesGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "country"
+        in: "query"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "Spain"
+          - "Europe"
+          - "World"
+          - "Australia"
+          - "France"
+          - "China Mainland"
+          - "Hong Kong"
+          - "Japan"
+          - "Malaysia"
+          - "Nepal"
+          - "Singapore"
+          - "South Korea"
+          - "Taiwan"
+          - "Thailand"
+          - "US"
+          - "Vietnam"
+          - "Macau"
+        collectionFormat: "multi"
+        maxItems: 1
+        minItems: 1
+      responses:
+        200:
+          description: "Successful operation."
+          schema:
+            $ref: "#/definitions/resultCases"
+        400:
+          description: "Validation exception."
+        404:
+          description: "No results for the given source."
+      x-swagger-router-controller: "Default"
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: "Unlimited"
+  /casesPerOneMillion:
+    get:
+      summary: "Cases per Million"
+      description: "Cases per Million"
+      operationId: "casesPerOneMillionGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "country"
+        in: "query"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "Spain"
+          - "Europe"
+          - "World"
+          - "Australia"
+          - "France"
+          - "China Mainland"
+          - "Hong Kong"
+          - "Japan"
+          - "Malaysia"
+          - "Nepal"
+          - "Singapore"
+          - "South Korea"
+          - "Taiwan"
+          - "Thailand"
+          - "US"
+          - "Vietnam"
+          - "Macau"
+        collectionFormat: "multi"
+        maxItems: 1
+        minItems: 1
+      responses:
+        200:
+          description: "Successful operation."
+          schema:
+            $ref: "#/definitions/resultCases"
+        400:
+          description: "Validation exception."
+        404:
+          description: "No results for the given source."
+      x-swagger-router-controller: "Default"
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: "Unlimited"
+  /critical:
+    get:
+      summary: "Critical cases"
+      description: "Critical cases"
+      operationId: "criticalGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "country"
+        in: "query"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "Spain"
+          - "Europe"
+          - "World"
+          - "Australia"
+          - "France"
+          - "China Mainland"
+          - "Hong Kong"
+          - "Japan"
+          - "Malaysia"
+          - "Nepal"
+          - "Singapore"
+          - "South Korea"
+          - "Taiwan"
+          - "Thailand"
+          - "US"
+          - "Vietnam"
+          - "Macau"
+        collectionFormat: "multi"
+        maxItems: 1
+        minItems: 1
+      responses:
+        200:
+          description: "Successful operation."
+          schema:
+            $ref: "#/definitions/resultCases"
+        400:
+          description: "Validation exception."
+        404:
+          description: "No results for the given source."
+      x-swagger-router-controller: "Default"
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: "Unlimited"
+  /deaths:
+    get:
+      summary: "Total of persons death."
+      description: "Total of person death because a direct relation ship with 2019\
+        \ - NCoV"
+      operationId: "deathsGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "country"
+        in: "query"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "Spain"
+          - "Europe"
+          - "World"
+          - "Australia"
+          - "France"
+          - "China Mainland"
+          - "Hong Kong"
+          - "Japan"
+          - "Malaysia"
+          - "Nepal"
+          - "Singapore"
+          - "South Korea"
+          - "Taiwan"
+          - "Thailand"
+          - "US"
+          - "Vietnam"
+          - "Macau"
+        collectionFormat: "multi"
+        maxItems: 1
+        minItems: 1
+      responses:
+        200:
+          description: "Successful operation."
+          schema:
+            $ref: "#/definitions/resultCases"
+        400:
+          description: "Validation exception."
+        404:
+          description: "No results for the given source."
+      x-swagger-router-controller: "Default"
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: "Unlimited"
+  /deathsPerOneMillion:
+    get:
+      summary: "Deaths per Million"
+      description: "Deaths per Million"
+      operationId: "deathsPerOneMillionGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "country"
+        in: "query"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "Spain"
+          - "Europe"
+          - "World"
+          - "Australia"
+          - "France"
+          - "China Mainland"
+          - "Hong Kong"
+          - "Japan"
+          - "Malaysia"
+          - "Nepal"
+          - "Singapore"
+          - "South Korea"
+          - "Taiwan"
+          - "Thailand"
+          - "US"
+          - "Vietnam"
+          - "Macau"
+        collectionFormat: "multi"
+        maxItems: 1
+        minItems: 1
+      responses:
+        200:
+          description: "Successful operation."
+          schema:
+            $ref: "#/definitions/resultCases"
+        400:
+          description: "Validation exception."
+        404:
+          description: "No results for the given source."
+      x-swagger-router-controller: "Default"
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: "Unlimited"
+  /recovered:
+    get:
+      summary: "Recovered cases"
+      description: "Recovered cases"
+      operationId: "recoveredGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "country"
+        in: "query"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "Spain"
+          - "Europe"
+          - "World"
+          - "Australia"
+          - "France"
+          - "China Mainland"
+          - "Hong Kong"
+          - "Japan"
+          - "Malaysia"
+          - "Nepal"
+          - "Singapore"
+          - "South Korea"
+          - "Taiwan"
+          - "Thailand"
+          - "US"
+          - "Vietnam"
+          - "Macau"
+        collectionFormat: "multi"
+        maxItems: 1
+        minItems: 1
+      responses:
+        200:
+          description: "Successful operation."
+          schema:
+            $ref: "#/definitions/resultCases"
+        400:
+          description: "Validation exception."
+        404:
+          description: "No results for the given source."
+      x-swagger-router-controller: "Default"
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: "Unlimited"
+  /testsPerOneMillion:
+    get:
+      summary: "Test Per Million"
+      description: "Test Per Million"
+      operationId: "testsPerOneMillionGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "country"
+        in: "query"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "Spain"
+          - "Europe"
+          - "World"
+          - "Australia"
+          - "France"
+          - "China Mainland"
+          - "Hong Kong"
+          - "Japan"
+          - "Malaysia"
+          - "Nepal"
+          - "Singapore"
+          - "South Korea"
+          - "Taiwan"
+          - "Thailand"
+          - "US"
+          - "Vietnam"
+          - "Macau"
+        collectionFormat: "multi"
+        maxItems: 1
+        minItems: 1
+      responses:
+        200:
+          description: "Successful operation."
+          schema:
+            $ref: "#/definitions/resultCases"
+        400:
+          description: "Validation exception."
+        404:
+          description: "No results for the given source."
+      x-swagger-router-controller: "Default"
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: "Unlimited"
+  /todayCases:
+    get:
+      summary: "Today cases."
+      description: "Number of registered cases today"
+      operationId: "todayCasesGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "country"
+        in: "query"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "Spain"
+          - "Europe"
+          - "World"
+          - "Australia"
+          - "France"
+          - "China Mainland"
+          - "Hong Kong"
+          - "Japan"
+          - "Malaysia"
+          - "Nepal"
+          - "Singapore"
+          - "South Korea"
+          - "Taiwan"
+          - "Thailand"
+          - "US"
+          - "Vietnam"
+          - "Macau"
+        collectionFormat: "multi"
+        maxItems: 1
+        minItems: 1
+      responses:
+        200:
+          description: "Successful operation."
+          schema:
+            $ref: "#/definitions/resultCasesCountry"
+        400:
+          description: "Validation exception."
+        404:
+          description: "No results for the given source."
+      x-swagger-router-controller: "Default"
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: "Unlimited"
+  /todayDeaths:
+    get:
+      summary: "Today deaths."
+      description: "Number of deaths today"
+      operationId: "todayDeathsGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "country"
+        in: "query"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "Spain"
+          - "Europe"
+          - "World"
+          - "Australia"
+          - "France"
+          - "China Mainland"
+          - "Hong Kong"
+          - "Japan"
+          - "Malaysia"
+          - "Nepal"
+          - "Singapore"
+          - "South Korea"
+          - "Taiwan"
+          - "Thailand"
+          - "US"
+          - "Vietnam"
+          - "Macau"
+        collectionFormat: "multi"
+        maxItems: 1
+        minItems: 1
+      responses:
+        200:
+          description: "Successful operation."
+          schema:
+            $ref: "#/definitions/resultCases"
+        400:
+          description: "Validation exception."
+        404:
+          description: "No results for the given source."
+      x-swagger-router-controller: "Default"
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: "Unlimited"
+  /totalTests:
+    get:
+      summary: "Test Totals"
+      description: "Tests total"
+      operationId: "totalTestsGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "country"
+        in: "query"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "Spain"
+          - "Europe"
+          - "World"
+          - "Australia"
+          - "France"
+          - "China Mainland"
+          - "Hong Kong"
+          - "Japan"
+          - "Malaysia"
+          - "Nepal"
+          - "Singapore"
+          - "South Korea"
+          - "Taiwan"
+          - "Thailand"
+          - "US"
+          - "Vietnam"
+          - "Macau"
+        collectionFormat: "multi"
+        maxItems: 1
+        minItems: 1
+      responses:
+        200:
+          description: "Successful operation."
+          schema:
+            $ref: "#/definitions/resultCases"
+        400:
+          description: "Validation exception."
+        404:
+          description: "No results for the given source."
+      x-swagger-router-controller: "Default"
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: "Unlimited"
+definitions:
+  resultCases:
+    required:
+    - "data"
+    - "date"
+    properties:
+      data:
+        type: "integer"
+      date:
+        type: "string"
+    example:
+      date: "2020-04-10T17:01:40.000Z"
+      data: 2425
+  resultCasesCountry:
+    required:
+    - "data"
+    - "date"
+    properties:
+      data:
+        type: "integer"
+      date:
+        type: "string"
+    example:
+      date: "2020-04-10T17:01:40.000Z"
+      data: 157053
+      country: "Spain"
+parameters:
+  country:
+    name: "country"
+    in: "query"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+      enum:
+      - "Spain"
+      - "Europe"
+      - "World"
+      - "Australia"
+      - "France"
+      - "China Mainland"
+      - "Hong Kong"
+      - "Japan"
+      - "Malaysia"
+      - "Nepal"
+      - "Singapore"
+      - "South Korea"
+      - "Taiwan"
+      - "Thailand"
+      - "US"
+      - "Vietnam"
+      - "Macau"
+    collectionFormat: "multi"
+    maxItems: 1
+    minItems: 1
+    uniqueItems: true

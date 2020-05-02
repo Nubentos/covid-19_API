@@ -1,0 +1,1815 @@
+{
+	"info": {
+		"_postman_id": "64491035-150b-460f-b02a-f8969f8da421",
+		"name": "API-nCoV2019 v2.0.0",
+		"description": "# nCoV 2019 API v2.0.0\nProvides information related with the case of pneumonia associated with the COVID-19 coronavirus.\n\nAvailable at [Nubentos](https://apimarket.nubentos.com/store/apis/info?name=API-nCoV2019&version=2.0.0&provider=owner-AT-nubentos.com&tenant=nubentos.com&utm_source=postman&utm_medium=documentacion&utm_campaign=workflow&utm_content=doc).\n\nThe data we provide is collected from World Health Organization (WHO), the US Centers for Disease Control and Prevention (CDC), the Chinese Centre for Disease Control and Prevention (ECDC), China’s National Health Commission, and Chinese website DXY which provides regional case estimates faster than the national level reporting organizations.\n\n# Licensing\n\nWebsites and mobile applications that do not intend in monetizing this information are free to consume this API while adding the Name and URL of this API in your cedits.\n\n# Authentication\nAuthorization to this service is based on 'Bearer token' provided by **Nubentos API Marketplace platform**. To get your authorization token, please sign up to  [Nubento](https://apimarket.nubentos.com/store/apis/info?name=API-nCoV2019&version=2.0.0&provider=owner-AT-nubentos.com&tenant=nubentos.com&utm_source=postman&utm_medium=documentacion&utm_campaign=workflow&utm_content=doc) with your full name, email address. Also, feel free to write us with a brief note about how you're planning to use this API (about your app/website) to [hola<@>nubentos.com](mailto:hola@nubentos.com)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Acumulative number of cases",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e3a1cada-f15b-464e-ae3a-92bd95a5e944",
+						"exec": [
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok;",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/cases?country={{country}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"cases"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "{{country}}"
+						}
+					]
+				},
+				"description": "Summary of suspected and confirmed"
+			},
+			"response": [
+				{
+					"name": "Acumulative number of cases without filter by country",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/cases",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cases"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "{{country}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-U535RzAx6+ylYbElYi5LrUnyQ5g\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Apr 2020 14:58:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"date\": \"2020-04-10T07:55:31.000Z\",\n        \"data\": 1607595\n    }\n]"
+				},
+				{
+					"name": "Acumulative number of cases filtered by 'Spain'",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/cases?country={{country}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cases"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "{{country}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "69"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"45-GSCFXGWveQJMyugGzyGG87qCr6U\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Apr 2020 14:59:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"date\": \"2020-04-10T07:55:31.000Z\",\n        \"country\": \"Spain\",\n        \"data\": 153222\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Today cases.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "308f1b0a-7e31-419a-b886-20f66b77b2d2",
+						"exec": [
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok;",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/todayCases?country={{country}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"todayCases"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "{{country}}"
+						}
+					]
+				},
+				"description": "Number of registered cases today"
+			},
+			"response": [
+				{
+					"name": "Today cases without filtered by country.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/todayCases",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"todayCases"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "{{country}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"31-3nZR1ZzQH596ywu49xRt6V8xLqk\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Apr 2020 15:04:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"date\": \"2020-04-10T07:55:31.000Z\",\n        \"data\": 3943\n    }\n]"
+				},
+				{
+					"name": "Today cases without filter by country",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/todayCases",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"todayCases"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "{{country}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"31-3nZR1ZzQH596ywu49xRt6V8xLqk\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Apr 2020 15:02:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"date\": \"2020-04-10T07:55:31.000Z\",\n        \"data\": 3943\n    }\n]"
+				},
+				{
+					"name": "Today cases filtered by 'Spain'",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/todayCases?country={{country}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"todayCases"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "{{country}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "64"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"40-xwg4Yt18XBY13D2RmMCjSF3hvJo\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Apr 2020 15:02:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"date\": \"2020-04-10T07:55:31.000Z\",\n        \"country\": \"Spain\",\n        \"data\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Active cases",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "00ed86a8-1c84-4090-b9d9-f77553aeb943",
+						"exec": [
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok;",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/active?country={{country}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"active"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "{{country}}"
+						}
+					]
+				},
+				"description": "Number of active cases"
+			},
+			"response": [
+				{
+					"name": "Active cases without filtered by country",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/active",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"active"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "{{country}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.17.7"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Apr 2020 17:08:33 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-7I3oaM/JRwGmcReKiL13p028et0\""
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"date\": \"2020-04-10T17:01:40.000Z\",\n        \"data\": 1182346\n    }\n]"
+				},
+				{
+					"name": "Active cases filtered by 'Spain'",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/active?country={{country}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"active"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "{{country}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.17.7"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Apr 2020 17:07:58 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"44-dX3pk5D416W8aNoVswsYvttHkYI\""
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"date\": \"2020-04-10T16:09:10.000Z\",\n        \"country\": \"Spain\",\n        \"data\": 85415\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Total of persons death.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e7a9745c-6eef-4034-b384-a8355001459b",
+						"exec": [
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok;",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/deaths?country={{country}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"deaths"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "{{country}}"
+						}
+					]
+				},
+				"description": "Total of person death because a direct relation ship with 2019 - NCoV"
+			},
+			"response": [
+				{
+					"name": "Total of persons death without filtered by country",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/deaths",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"deaths"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "{{country}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.15.6"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Apr 2020 18:24:33 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"33-Hy06vg9xlaCqKYy4u/IzwY4jtow\""
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization,Access-Control-Allow-Origin,Content-Type,SOAPAction"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15724800; includeSubDomains"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"date\": \"2020-04-10T18:16:40.000Z\",\n        \"data\": 101559\n    }\n]"
+				},
+				{
+					"name": "Total of persons death filtered by 'Spain'",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/deaths?country={{country}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"deaths"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "{{country}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.15.6"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Apr 2020 18:24:58 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization,Access-Control-Allow-Origin,Content-Type,SOAPAction"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15724800; includeSubDomains"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				}
+			]
+		},
+		{
+			"name": "Today deaths.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2284d2b9-f4b3-4508-809d-d70ee4f108cd",
+						"exec": [
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok;",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/todayDeaths?country={{country}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"todayDeaths"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "{{country}}"
+						}
+					]
+				},
+				"description": "Number of deaths today"
+			},
+			"response": [
+				{
+					"name": "Deaths today unfiltered by country",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/todayDeaths",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"todayDeaths"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "{{country}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.15.6"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Apr 2020 18:26:37 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"31-5/5+xfdPa/g8a1Qzvm3lq0T+NOM\""
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization,Access-Control-Allow-Origin,Content-Type,SOAPAction"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15724800; includeSubDomains"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"date\": \"2020-04-10T18:16:40.000Z\",\n        \"data\": 5867\n    }\n]"
+				},
+				{
+					"name": "Deaths today filtered by 'Spain'",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/todayDeaths?country={{country}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"todayDeaths"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "{{country}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.15.6"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Apr 2020 18:28:02 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization,Access-Control-Allow-Origin,Content-Type,SOAPAction"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15724800; includeSubDomains"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				}
+			]
+		},
+		{
+			"name": "Recovered cases",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "896a882d-dd3f-41ab-a225-13fcb5a90c40",
+						"exec": [
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok;",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/recovered?country={{country}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"recovered"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "{{country}}"
+						}
+					]
+				},
+				"description": "Recovered cases"
+			},
+			"response": [
+				{
+					"name": "Recovered unfiltered by country",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/recovered",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"recovered"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "{{country}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.15.6"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Apr 2020 18:28:47 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"33-hpVWXYeCY8MmQmKs4u5A7b9OK1w\""
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization,Access-Control-Allow-Origin,Content-Type,SOAPAction"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15724800; includeSubDomains"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"date\": \"2020-04-10T18:16:40.000Z\",\n        \"data\": 372403\n    }\n]"
+				},
+				{
+					"name": "Recovered filtered by country",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/recovered?country={{country}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"recovered"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "{{country}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.15.6"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Apr 2020 18:29:13 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization,Access-Control-Allow-Origin,Content-Type,SOAPAction"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15724800; includeSubDomains"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				}
+			]
+		},
+		{
+			"name": "Critical cases",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0a0f0da0-1299-44e5-bd86-ac2bce072502",
+						"exec": [
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok;",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/critical",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"critical"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "{{country}}",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Critical cases"
+			},
+			"response": [
+				{
+					"name": "Critical cases",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/critical",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"critical"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "{{country}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.15.6"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Apr 2020 18:29:49 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-DG4Hbz/JW/16fPJ53H4EaOQcHYU\""
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization,Access-Control-Allow-Origin,Content-Type,SOAPAction"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15724800; includeSubDomains"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"date\": \"2020-04-10T18:29:11.000Z\",\n        \"data\": 1677285\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Cases per Million",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b4d075d-ac04-4057-92fe-65eccf008d6f",
+						"exec": [
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok;",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"pm.test(\"Response contain Spain\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].country).to.eql('Spain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/casesPerOneMillion?country={{country}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"casesPerOneMillion"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "{{country}}"
+						}
+					]
+				},
+				"description": "Cases per Million"
+			},
+			"response": [
+				{
+					"name": "Successful operation.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/casesPerOneMillion?country=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"casesPerOneMillion"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"date\": \"2020-01-26\",\n \"data\": 2425\n}"
+				}
+			]
+		},
+		{
+			"name": "Deaths per Million",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d1c376ac-350d-42be-a72d-202da8074749",
+						"exec": [
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok;",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"pm.test(\"Response contain Spain\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].country).to.eql('Spain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/deathsPerOneMillion?country={{country}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"deathsPerOneMillion"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "{{country}}"
+						}
+					]
+				},
+				"description": "Deaths per Million"
+			},
+			"response": [
+				{
+					"name": "Successful operation.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/deathsPerOneMillion?country=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"deathsPerOneMillion"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"date\": \"2020-01-26\",\n \"data\": 2425\n}"
+				}
+			]
+		},
+		{
+			"name": "Test Totals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "01f63078-4043-4faa-8106-a85273d4f030",
+						"exec": [
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok;",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"     pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response contain Spain\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].country).to.eql('Spain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/totalTests?country={{country}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"totalTests"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "{{country}}"
+						}
+					]
+				},
+				"description": "Tests total"
+			},
+			"response": [
+				{
+					"name": "Test Totals",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/totalTests",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"totalTests"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "{{country}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.15.6"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Apr 2020 18:30:05 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2e-pfQWhDGeRlQtY869HOQbqUI7lEg\""
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization,Access-Control-Allow-Origin,Content-Type,SOAPAction"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15724800; includeSubDomains"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"date\": \"2020-04-10T18:29:11.000Z\",\n        \"data\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Test per Million",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "042ff288-1ac1-467b-82c6-6b635cccc969",
+						"exec": [
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok;",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"     pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response contain Spain\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].country).to.eql('Spain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/testsPerOneMillion?country={{country}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"testsPerOneMillion"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "{{country}}"
+						}
+					]
+				},
+				"description": "Test Per Million"
+			},
+			"response": [
+				{
+					"name": "Tests per Million unfiltered by country",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/testsPerOneMillion",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"testsPerOneMillion"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "{{country}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.15.6"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 10 Apr 2020 18:30:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2e-pfQWhDGeRlQtY869HOQbqUI7lEg\""
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "authorization,Access-Control-Allow-Origin,Content-Type,SOAPAction"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15724800; includeSubDomains"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"date\": \"2020-04-10T18:29:11.000Z\",\n        \"data\": 0\n    }\n]"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b6b5cdf1-06c3-4acb-a514-5c964c827d8c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3102ef83-f46d-440c-a711-1436d7699ef2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "6333774b-67a9-426a-b25c-9c5d67747eef",
+			"key": "baseUrl",
+			"value": "https://apigw.nubentos.com:443/t/nubentos.com/ncovapi/2.0.0",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

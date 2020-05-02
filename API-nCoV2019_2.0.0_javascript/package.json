@@ -1,0 +1,18 @@
+{
+  "name": "api_n_co_v2019",
+  "version": "1.0.0",
+  "description": "nCoV_2019_API_provides_information_related_with_the_case_of_pneumonia_associated_with_the_COVID_19_coronavirus___The_data_we_provide_is_collected_from_World_Health_Organization__WHO_the_US_Centers_for_Disease_Control_and_Prevention__CDC_the_Chinese_Centre_for_Disease_Control_and_Prevention__ECDC_Chinas_National_Health_Commission_and_Chinese_website_DXY_which_provides_regional_case_estimates_faster_than_the_national_level_reporting_organizations_",
+  "license": "Apache-2.0",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --recursive"
+  },
+  "dependencies": {
+    "superagent": "1.7.1"
+  },
+  "devDependencies": {
+    "mocha": "~2.3.4",
+    "sinon": "1.17.3",
+    "expect.js": "~0.3.1"
+  }
+}

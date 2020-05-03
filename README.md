@@ -8,11 +8,11 @@ We covered in this repository the next list of resources.
 
 [:white_check_mark:] Postman collection ready to import in your Postman API Client.
 
-[:white_check_mark:] Client SDK in Java Languaje.
+[:white_check_mark:] Client SDK in Java language.
 
-[:white_check_mark:] Client SDK in JavaScript Languaje.
+[:white_check_mark:] Client SDK in JavaScript language.
 
-[:white_check_mark:] Mock server in Node.js languaje.
+[:white_check_mark:] Mock server in Node.js language.
 
 
 ## Authors

@@ -21,6 +21,6 @@ We covered in this repository the next list of resources.
 
 © 2020 [Nubentos: The API Marketplace for Health](https://www.nubentos.com/?utm_source=directorio&utm_medium=clientes&utm_campaign=inicio&utm_content=github)
 
-[![Powered by nubentos](https://img.shields.io/badge/powered%20by-nubentos.com-blue)](https://www.nubentos.com)
+[![Powered by nubentos](https://img.shields.io/badge/powered_by-nubentos.com-blue)](https://www.nubentos.com?utm_source=barget)
 
 

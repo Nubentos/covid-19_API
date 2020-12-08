@@ -2,9 +2,7 @@
 
 var url = require('url');
 
-
 var Default = require('./DefaultService');
-
 
 module.exports.activeGET = function activeGET (req, res, next) {
   Default.activeGET(req.swagger.params, res, next);

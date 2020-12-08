@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **Integer** |  | 
+**data** | **Number** |  | 
 **_date** | **String** |  | 
 
 

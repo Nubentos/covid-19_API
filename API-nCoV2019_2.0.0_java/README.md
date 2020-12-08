@@ -60,7 +60,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 import org.wso2.client.api.*;
 import org.wso2.client.api.auth.*;
-import org.wso2.client.api.model.*;
+import org.wso2.client.model.API_nCoV2019.*;
 import org.wso2.client.api.API_nCoV2019.DefaultApi;
 
 import java.io.File;
@@ -86,7 +86,7 @@ public class DefaultApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://apigw.nubentos.com/t/nubentos.com/ncovapi/2.0.0*
+All URIs are relative to *https://gateway.nubentos.com/nubentos.com/ncovapi/2.0.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -116,7 +116,7 @@ Authentication schemes defined for the API:
 
 ## Recommendation
 
-It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issue.
+It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
 ## Author
 
